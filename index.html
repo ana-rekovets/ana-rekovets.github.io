@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anastasiia Rekovets — Economist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F7F4EE;
+      --ink: #1C1A16;
+      --ink-soft: #4A4740;
+      --ink-muted: #8A8680;
+      --rule: #D5D0C6;
+      --accent: #2B4B8C;
+      --accent-light: #EEF2FA;
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 max(2rem, calc(50vw - 38rem));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 76rem;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    /* ── HERO ── */
+    #hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      padding: 7rem 0 5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-left h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-left h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      max-width: 34ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.1rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover { background: #1e3a72; border-color: #1e3a72; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink-soft);
+      border: 1px solid var(--rule);
+    }
+
+    .btn-outline:hover { border-color: var(--ink-soft); color: var(--ink); }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .stat {
+      border-top: 2px solid var(--rule);
+      padding-top: 0.75rem;
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    .hero-bio {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      border-left: 2px solid var(--accent);
+      padding-left: 1.25rem;
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ── RESEARCH ── */
+    .papers-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .paper {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0 2rem;
+      align-items: start;
+      padding: 2.25rem 0;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .paper:last-child { border-bottom: none; }
+
+    .paper-year {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      padding-top: 0.25rem;
+      min-width: 3.5rem;
+    }
+
+    .paper-body { min-width: 0; }
+
+    .paper-status {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 0.6rem;
+    }
+
+    .status-working {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .status-thesis {
+      background: #EEF7EE;
+      color: #2A6B2A;
+    }
+
+    .paper h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .paper-meta {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .paper-abstract {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      max-width: 72ch;
+    }
+
+    .paper-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.2rem 0.65rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--ink-soft);
+      background: transparent;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 0.25rem;
+    }
+
+    .paper-link {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+
+    .paper-link:hover { opacity: 0.7; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0;
+    }
+
+    .skill-block {
+      padding: 2rem 2rem 2rem 0;
+      border-right: 1px solid var(--rule);
+    }
+
+    .skill-block:last-child { border-right: none; }
+
+    .skill-block h4 {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-pill {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      background: #EEEAE0;
+      padding: 0.25rem 0.7rem;
+      border-radius: 2px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .edu-item {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 0 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .edu-item:last-child { border-bottom: none; }
+
+    .edu-year {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      padding-top: 0.2rem;
+    }
+
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-school {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-note {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+
+    /* ── CONTACT / FOOTER ── */
+    #contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      padding: 5rem 0;
+    }
+
+    .contact-headline {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .contact-note {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      max-width: 38ch;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      min-width: 5rem;
+    }
+
+    .contact-row a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-row a:hover { text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      #hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0 3rem; }
+      .stat-row { grid-template-columns: repeat(3, 1fr); }
+      .paper { grid-template-columns: 1fr; }
+      .paper-year { display: none; }
+      .paper-links { flex-direction: row; margin-top: 0.5rem; }
+      #contact { grid-template-columns: 1fr; gap: 2rem; }
+      .skill-block { border-right: none; border-bottom: 1px solid var(--rule); padding: 1.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="#hero">Anastasiia Rekovets</a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-left">
+        <h1>Anastasiia<br><em>Rekovets</em></h1>
+        <p class="hero-tagline">M.Sc. Economics candidate at LMU Munich. Applied econometrics, causal inference, and quasi-experimental methods. Seeking PhD positions in Economics.</p>
+        <div class="hero-links">
+          <a class="btn btn-primary" href="mailto:ana.rekovets@gmail.com">Get in touch</a>
+          <a class="btn btn-outline" href="https://github.com/ana-rekovets" target="_blank">GitHub</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="stat-row">
+          <div class="stat">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Research projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Countries studied</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">#1</span>
+            <span class="stat-label">LMU rank, Germany</span>
+          </div>
+        </div>
+        <p class="hero-bio">Specializing in housing economics, migration shocks, and heterogeneous treatment effect estimation. Experienced across the full empirical pipeline — from administrative data management to causal inference and policy-relevant research writing.</p>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <p class="section-label">Research</p>
+
+      <div class="papers-grid">
+
+        <div class="paper">
+          <span class="paper-year">2026</span>
+          <div class="paper-body">
+            <span class="paper-status status-working">Working Paper</span>
+            <h3>Reassessing the Causal Interpretation of Two-Stage Least Squares</h3>
+            <p class="paper-meta">LMU Munich &middot; Stata, R</p>
+            <p class="paper-abstract">Using data from a randomized field experiment (11,600+ student observations), I apply Double Machine Learning to detect specification bias in TSLS estimates. The paper empirically demonstrates the failure of the rich covariates condition and quantifies the resulting downward bias, with robustness checks and a fully documented replication repository.</p>
+            <div class="paper-tags">
+              <span class="tag">IV / TSLS</span>
+              <span class="tag">Double Machine Learning</span>
+              <span class="tag">Specification Bias</span>
+            </div>
+          </div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://github.com/ana-rekovets" target="_blank">↗ Repo</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <span class="paper-year">2025</span>
+          <div class="paper-body">
+            <span class="paper-status status-working">Working Paper</span>
+            <h3>Rent Dynamics &amp; Migration Shocks: Evidence from Russia, 2022</h3>
+            <p class="paper-meta">LMU Munich · Sector Study &middot; Stata</p>
+            <p class="paper-abstract">Estimates the causal impact of the February and September 2022 forced migration shocks on regional housing markets using administrative data. Quasi-experimental interrupted time series (ITS) analysis reveals statistically significant post-shock upward rent trends with implications for short-run housing affordability.</p>
+            <div class="paper-tags">
+              <span class="tag">Interrupted Time Series</span>
+              <span class="tag">Housing Economics</span>
+              <span class="tag">Migration</span>
+            </div>
+          </div>
+          <div class="paper-links"></div>
+        </div>
+
+        <div class="paper">
+          <span class="paper-year">2025</span>
+          <div class="paper-body">
+            <span class="paper-status status-working">Working Paper</span>
+            <h3>Public Policy Impact: Early-Life Cash Transfers — A Causal Forest Approach</h3>
+            <p class="paper-meta">LMU Munich &middot; R (grf)</p>
+            <p class="paper-abstract">Applies Causal Forests to quasi-experimental data (16,000+ linked historical administrative records) to evaluate social policy impacts on longevity. Estimates an average treatment effect of +1.5% log longevity and maps significant treatment heterogeneity across regional socioeconomic groups, with full robustness analysis and documented replication code.</p>
+            <div class="paper-tags">
+              <span class="tag">Causal Forests</span>
+              <span class="tag">Heterogeneous Treatment Effects</span>
+              <span class="tag">Social Policy</span>
+            </div>
+          </div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://github.com/ana-rekovets" target="_blank">↗ Repo</a>
+          </div>
+        </div>
+
+        <div class="paper">
+          <span class="paper-year">2025</span>
+          <div class="paper-body">
+            <span class="paper-status status-working">Working Paper</span>
+            <h3>Strategic Policy Analysis: Innovation Subsidies and Firm Productivity</h3>
+            <p class="paper-meta">LMU Munich &middot; R (DoubleML, grf)</p>
+            <p class="paper-abstract">Estimates average and heterogeneous treatment effects of an R&amp;D subsidy on firm productivity (2,381 firms) using Causal Forests, DDML, DR-TMLE, and Instrumental Forests. Addresses selection on observables, attrition, and unobserved confounding; finds robust ATEs and substantial CATE heterogeneity across firm types.</p>
+            <div class="paper-tags">
+              <span class="tag">DDML</span>
+              <span class="tag">DR-TMLE</span>
+              <span class="tag">R&D Subsidies</span>
+              <span class="tag">CATE</span>
+            </div>
+          </div>
+          <div class="paper-links"></div>
+        </div>
+
+        <div class="paper">
+          <span class="paper-year">2024</span>
+          <div class="paper-body">
+            <span class="paper-status status-thesis">Bachelor's Thesis</span>
+            <h3>The Impact of Immigration Shocks on the Housing Market</h3>
+            <p class="paper-meta">Higher School of Economics &middot; R</p>
+            <p class="paper-abstract">Constructs and manages a monthly 10-year panel dataset combining administrative migration flows and macroeconomic controls. Demonstrates that a 1% increase in migration inflows causes a 1.4% immediate rent increase and a 0.8% lagged increase, with a 3× amplification during the September 2022 shock.</p>
+            <div class="paper-tags">
+              <span class="tag">Difference-in-Differences</span>
+              <span class="tag">Panel Data</span>
+              <span class="tag">Housing Markets</span>
+              <span class="tag">Migration</span>
+            </div>
+          </div>
+          <div class="paper-links"></div>
+        </div>
+
+        <div class="paper">
+          <span class="paper-year">2023</span>
+          <div class="paper-body">
+            <span class="paper-status status-working">Working Paper</span>
+            <h3>Income Inequality, Capitalism, and Diversity: A Global Panel Analysis</h3>
+            <p class="paper-meta">University of Leipzig &middot; Stata, R</p>
+            <p class="paper-abstract">Econometric analysis of a macroeconomic panel (108 countries, 40 years). Applies R-squared decompositions using Shapley and Owen values to assess the relative contributions of socio-cultural and economic drivers of global income inequality.</p>
+            <div class="paper-tags">
+              <span class="tag">Political Economy</span>
+              <span class="tag">Inequality</span>
+              <span class="tag">Shapley Decomposition</span>
+            </div>
+          </div>
+          <div class="paper-links">
+            <a class="paper-link" href="https://github.com/ana-rekovets" target="_blank">↗ Repo</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <p class="section-label">Technical Skills</p>
+      <div class="skills-grid">
+        <div class="skill-block">
+          <h4>Programming</h4>
+          <div class="skill-list">
+            <span class="skill-pill">Stata</span>
+            <span class="skill-pill">R</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">MATLAB</span>
+            <span class="skill-pill">LaTeX</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h4>Causal Inference</h4>
+          <div class="skill-list">
+            <span class="skill-pill">DiD</span>
+            <span class="skill-pill">IV / TSLS</span>
+            <span class="skill-pill">ITS</span>
+            <span class="skill-pill">DDML</span>
+            <span class="skill-pill">Causal Forests</span>
+            <span class="skill-pill">DR-TMLE</span>
+            <span class="skill-pill">PSM</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h4>R Libraries</h4>
+          <div class="skill-list">
+            <span class="skill-pill">tidyverse</span>
+            <span class="skill-pill">grf</span>
+            <span class="skill-pill">DoubleML</span>
+            <span class="skill-pill">ggplot2</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <h4>Python Libraries</h4>
+          <div class="skill-list">
+            <span class="skill-pill">pandas</span>
+            <span class="skill-pill">NumPy</span>
+            <span class="skill-pill">scikit-learn</span>
+            <span class="skill-pill">PyTorch</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <p class="section-label">Education</p>
+      <div class="edu-list">
+
+        <div class="edu-item">
+          <span class="edu-year">2026</span>
+          <div>
+            <p class="edu-degree">M.Sc. Economics</p>
+            <p class="edu-school">Ludwig Maximilian University of Munich (LMU)</p>
+            <p class="edu-note">Ranked #1 in Germany &amp; #38 globally for Economics &amp; Econometrics (QS 2023). Coursework: Advanced Econometrics, Machine Learning in Econometrics, Housing Economics, Public Economics.</p>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <span class="edu-year">2025–26</span>
+          <div>
+            <p class="edu-degree">Visiting Student</p>
+            <p class="edu-school">Università della Svizzera italiana (USI), Lugano</p>
+            <p class="edu-note">Awarded competitive SEMP scholarship ($10,000). Coursework: Machine Learning, Data Analytics for Finance, Programming in Finance and Economics, Databases.</p>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <span class="edu-year">2024</span>
+          <div>
+            <p class="edu-degree">B.Sc. Economics and Statistics</p>
+            <p class="edu-school">Higher School of Economics (HSE), Moscow</p>
+            <p class="edu-note">Top 5% of program. Full 4-year merit scholarship. Ranked #1 in Russia &amp; #58 globally for Economics &amp; Econometrics (QS 2024). Coursework: Applied Econometrics, Data Mining, Statistics, Game Theory.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="border-bottom: none;">
+      <div>
+        <h2 class="contact-headline">Let's connect.</h2>
+        <p class="contact-note">Open to PhD applications, pre-doctoral fellowships, and research assistant positions in applied economics.</p>
+      </div>
+      <div class="contact-details">
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <a href="mailto:ana.rekovets@gmail.com">ana.rekovets@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Phone</span>
+          <span>+1 (201) 758-6034</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Location</span>
+          <span>New York City, NY</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">GitHub</span>
+          <a href="https://github.com/ana-rekovets" target="_blank">github.com/ana-rekovets</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Status</span>
+          <span>U.S. Permanent Resident</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2025 Anastasiia Rekovets</span>
+      <span>New York City · Munich</span>
+    </footer>
+
+  </div>
+
+</body>
+</html>
