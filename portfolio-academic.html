@@ -1,0 +1,1190 @@
+<title>Anastasiia Rekovets — Academic Research Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F7F7F7;
+      --surface:   #E7E6E4;
+      --surface2:  #D9D9D9;
+      --border:    #C7C5BC;
+      --border-strong: rgba(0,0,0,0.26);
+      --ink:       #000000;
+      --muted:     #2E2C24;
+      --subtle:    #96927F;
+      --accent:    #5C6248;
+      --accent2:   #7B5843;
+      --accent-deep: #374527;
+      --accent-lt: #EAEBE2;
+      --white:     #FFFFFF;
+      --black:     #000000;
+      --serif:     'Montserrat', sans-serif;
+      --sans:      'Montserrat', sans-serif;
+      --mono:      'Montserrat', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 56px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent-deep); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 55% 45%;
+      padding-top: 62px;
+    }
+
+    .hero-left {
+      padding: 80px 56px;
+      display: flex; flex-direction: column; justify-content: center;
+      border-right: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin-bottom: 22px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--accent-deep);
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .hero-name em {
+      font-style: normal;
+      color: var(--accent-deep);
+    }
+
+    .hero-role {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 34px;
+    }
+
+    .hero-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 40px;
+    }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      padding: 5px 13px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 2px;
+      background: var(--surface);
+    }
+    .pill.active {
+      border-color: var(--accent-deep);
+      color: var(--accent-deep);
+      background: var(--accent-lt);
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 24px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn:hover { border-color: var(--ink); color: var(--ink); }
+    .btn.primary {
+      border-color: var(--accent-deep);
+      color: var(--accent-deep);
+      background: var(--accent-lt);
+    }
+    .btn.primary:hover {
+      background: var(--accent-deep);
+      border-color: var(--accent-deep);
+      color: var(--white);
+    }
+
+    /* ── Hero right ── */
+    .hero-right {
+      padding: 80px 48px;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      gap: 0;
+      background: var(--surface);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .hstat {
+      background: var(--white);
+      padding: 22px 16px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .hstat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--accent-deep);
+      line-height: 1;
+      display: block;
+    }
+    .hstat-label {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+      display: block;
+      line-height: 1.5;
+    }
+
+    .timeline-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .timeline-label::before {
+      content: ''; width: 20px; height: 1px; background: var(--accent-deep);
+    }
+
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tl-item:first-child { border-top: 1px solid var(--border); }
+    .tl-year {
+      font-family: var(--mono);
+      font-size: 0.64rem;
+      color: var(--subtle);
+      padding-top: 2px;
+      line-height: 1.5;
+    }
+    .tl-degree {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+    .tl-school {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .tl-note {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--accent-deep);
+      margin-top: 4px;
+    }
+
+    /* ── Sections ── */
+    .section {
+      padding: 96px 56px;
+      border-top: 1px solid var(--border);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 18px;
+      margin-bottom: 48px;
+    }
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--accent-deep);
+      letter-spacing: 0.12em;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* ── Experience Timeline ── */
+    .exp-timeline { position: relative; padding-left: 8px; }
+    .exp-item {
+      display: grid; grid-template-columns: 140px 1fr; gap: 32px;
+      position: relative; padding-bottom: 48px;
+    }
+    .exp-item:last-child { padding-bottom: 0; }
+    .exp-item::before {
+      content: ''; position: absolute; left: 148px; top: 6px; bottom: -48px;
+      width: 1px; background: var(--border);
+    }
+    .exp-item:last-child::before { display: none; }
+    .exp-item::after {
+      content: ''; position: absolute; left: 143px; top: 4px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--accent-deep); border: 2px solid var(--bg);
+    }
+    .exp-date {
+      font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--subtle); padding-top: 2px; line-height: 1.5;
+    }
+    .exp-role {
+      font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent-deep); margin-bottom: 6px;
+    }
+    .exp-title {
+      font-family: var(--serif); font-size: 1.3rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 14px; line-height: 1.3;
+    }
+    .exp-desc {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.85;
+      margin-bottom: 18px; max-width: 680px;
+    }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .exp-tags span {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.04em;
+      color: var(--muted); border: 1px solid var(--border); padding: 4px 10px;
+      background: var(--surface);
+    }
+    @media (max-width: 700px) {
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      .exp-item::before, .exp-item::after { display: none; }
+    }
+
+    /* ── Projects ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--white);
+      padding: 36px;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .project-card:hover { background: var(--surface2); }
+
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent-deep);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-tag {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin-bottom: 14px;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .project-methods {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 22px;
+    }
+    .method-tag {
+      font-family: var(--mono);
+      font-size: 0.57rem;
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--surface);
+    }
+
+    .project-link {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .project-link:hover { color: var(--accent-deep); }
+    .project-link svg { width: 11px; height: 11px; }
+
+    .project-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 48px;
+    }
+    .project-card.featured .project-title { font-size: 1.55rem; }
+
+    .featured-results {
+      display: flex; flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      align-self: start;
+    }
+    .result-item {
+      background: var(--surface);
+      padding: 20px 22px;
+    }
+    .result-num {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: var(--accent-deep);
+      line-height: 1;
+    }
+    .result-label {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ── Info Lists (Certifications, Conferences, Awards) ── */
+    .info-list { display: flex; flex-direction: column; }
+    .info-item {
+      display: grid; grid-template-columns: 1fr 170px; gap: 24px;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .info-item:first-child { border-top: 1px solid var(--border); }
+    .info-title {
+      font-size: 0.92rem; font-weight: 500; color: var(--ink);
+      line-height: 1.4; margin-bottom: 4px;
+    }
+    .info-detail { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+    .info-date {
+      font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--subtle); text-align: right;
+    }
+    @media (max-width: 700px) {
+      .info-item { grid-template-columns: 1fr; gap: 6px; }
+      .info-date { text-align: left; }
+    }
+
+    /* ── SQL / Database ── */
+    .sql-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    .sql-desc {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    .schema-list { list-style: none; }
+    .schema-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 3px;
+    }
+    .schema-item:first-child { border-top: 1px solid var(--border); }
+    .table-name {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent2);
+      font-weight: 500;
+    }
+    .table-desc {
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .sql-links { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+
+    .code-block {
+      background: var(--black);
+      border: 1px solid var(--accent-deep);
+      padding: 28px;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      font-family: var(--mono);
+      font-size: 0.71rem;
+      line-height: 2;
+      color: #D9D9D9;
+    }
+    .kw  { color: #A9B48A; }
+    .fn  { color: #C99C82; }
+    .cm  { color: #5A5A5A; }
+    .st  { color: #8FA06B; }
+
+    .sql-stats {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+      margin-top: 28px;
+    }
+    .sql-stat {
+      background: var(--surface); padding: 20px; text-align: center;
+    }
+    .sql-stat-num {
+      font-family: var(--serif); font-size: 2rem; font-weight: 300;
+      color: var(--accent-deep); line-height: 1; display: block;
+    }
+    .sql-stat-label {
+      font-family: var(--mono); font-size: 0.57rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-top: 6px; display: block;
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+    }
+    .skill-block { background: var(--white); padding: 30px 26px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .skill-block:hover { background: var(--surface2); }
+    .skill-category {
+      font-family: var(--mono); font-size: 0.59rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent-deep); margin-bottom: 18px;
+    }
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .skill-list li {
+      font-size: 0.8rem; color: var(--muted);
+      padding-left: 14px; position: relative;
+    }
+    .skill-list li::before {
+      content: '–'; position: absolute; left: 0;
+      color: var(--border);
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid; grid-template-columns: 3fr 2fr; gap: 80px;
+    }
+    .about-text {
+      font-size: 0.93rem; color: var(--muted); line-height: 2;
+    }
+    .contact-block { display: flex; flex-direction: column; }
+    .contact-item {
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .contact-item:first-child { border-top: 1px solid var(--border); }
+    .contact-label {
+      font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+    .contact-value {
+      font-size: 0.84rem; color: var(--ink); text-decoration: none;
+    }
+    .contact-value:hover { color: var(--accent-deep); }
+
+    /* ── Footer ── */
+    #certifications { background: var(--surface); }
+    #awards { background: var(--surface); }
+    #about { background: var(--surface); }
+
+    footer {
+      border-top: 1px solid var(--accent-deep);
+      padding: 26px 56px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--mono); font-size: 0.6rem; color: var(--surface2);
+      background: var(--black);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-left > * { animation: fadeUp 0.65s ease both; }
+    .hero-left > *:nth-child(1) { animation-delay: 0.08s; }
+    .hero-left > *:nth-child(2) { animation-delay: 0.18s; }
+    .hero-left > *:nth-child(3) { animation-delay: 0.26s; }
+    .hero-left > *:nth-child(4) { animation-delay: 0.34s; }
+    .hero-left > *:nth-child(5) { animation-delay: 0.42s; }
+    .hero-left > *:nth-child(6) { animation-delay: 0.50s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 16px 24px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { border-right: none; border-bottom: 1px solid var(--border); padding: 60px 24px; }
+      .hero-right { padding: 40px 24px; }
+      .section { padding: 60px 24px; }
+      .projects-grid, .sql-grid, .about-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+    }
+</style>
+
+<nav>
+  <a href="#" class="nav-name">Anastasiia Rekovets</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#awards">Honors</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Portfolio &middot; Academic Research</p>
+    <h1 class="hero-name">Anastasiia<br><em>Rekovets</em></h1>
+    <p class="hero-role">Applied Econometrics &middot; Causal Inference &middot; Machine Learning Methods</p>
+    <p class="hero-desc">
+      M.Sc. Economics candidate at LMU Munich with research interests in applied econometrics,
+      causal inference, and machine learning methods. Committed to pursuing a PhD, I apply
+      Double/Debiased ML, Causal Forests, and quasi-experimental designs to large administrative
+      and survey datasets — from U.S. Census-linked historical records to firm-level panels and
+      randomized experiments.
+    </p>
+    <div class="hero-pills">
+      <span class="pill active">Causal Inference</span>
+      <span class="pill active">DDML</span>
+      <span class="pill active">Causal Forests</span>
+      <span class="pill active">IV / TSLS</span>
+      <span class="pill">Field Experiments</span>
+      <span class="pill">Machine Learning</span>
+    </div>
+    <div class="hero-actions">
+      <a href="https://github.com/ana-rekovets" class="btn primary" target="_blank">GitHub</a>
+      <a href="mailto:ana.rekovets@gmail.com" class="btn">Contact</a>
+      <a href="#research" class="btn">View Research</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="hstat">
+        <span class="hstat-num">9+</span>
+        <span class="hstat-label">Research Projects</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num">250+</span>
+        <span class="hstat-label">Students Taught (TA)</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-num">$40K+</span>
+        <span class="hstat-label">Merit Scholarships Won</span>
+      </div>
+    </div>
+
+    <p class="timeline-label">Education</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2024 –<br>2027</div>
+        <div class="tl-content">
+          <div class="tl-degree">M.Sc. Economics</div>
+          <div class="tl-school">Ludwig Maximilian University of Munich</div>
+          <div class="tl-note">Aug 2027 · Advanced Econometrics, ML in Econometrics, Causal Inference</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025 –<br>2026</div>
+        <div class="tl-content">
+          <div class="tl-degree">Visiting Student</div>
+          <div class="tl-school">Università della Svizzera italiana, Lugano</div>
+          <div class="tl-note">Machine Learning · Data Analytics · Programming in Economics · Databases</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2020 –<br>2024</div>
+        <div class="tl-content">
+          <div class="tl-degree">B.Sc. Economics &amp; Statistics</div>
+          <div class="tl-school">Higher School of Economics (HSE)</div>
+          <div class="tl-note">Top 5% of cohort · Thesis: Immigration Shocks &amp; the Housing Market</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<div id="experience">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Research &amp; Professional Experience</h2>
+  </div>
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-date">Mar 2024 –<br>May 2024</div>
+      <div>
+        <p class="exp-role">Research Assistant &middot; Welfare Research Laboratory, HSE</p>
+        <h3 class="exp-title">Behavioral Archetypes from Survey &amp; Administrative Data</h3>
+        <p class="exp-desc">
+          Cleaned and harmonized survey data from 15,000+ respondents across administrative
+          regions in Python, building and maintaining the full pipeline from raw collection to
+          analysis-ready datasets under reproducible programming practices. Applied K-means,
+          DBSCAN, and hierarchical clustering with decision-tree models to construct behavioral
+          archetypes from survey and administrative data, validating results with robustness
+          checks and presenting findings to senior researchers and external partners.
+        </p>
+        <div class="exp-tags">
+          <span>Clustering</span>
+          <span>Survey Data</span>
+          <span>Python</span>
+          <span>Reproducible Pipelines</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Nov 2023 –<br>Mar 2024</div>
+      <div>
+        <p class="exp-role">Economic Analyst Intern &middot; SIBUR</p>
+        <h3 class="exp-title">Demand &amp; Production Forecasting</h3>
+        <p class="exp-desc">
+          Forecasted industry demand and production volumes using OLS, ARIMA, and VAR models on
+          10 years of monthly time series, integrating projections into internal planning and
+          management reporting. Built the underlying data layer — assembling and standardizing
+          series from internal and market sources in Python, automating cleaning and validation,
+          and cutting preparation time by 30%.
+        </p>
+        <div class="exp-tags">
+          <span>OLS / ARIMA / VAR</span>
+          <span>Time Series</span>
+          <span>Python</span>
+          <span>Forecasting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Sep 2023 –<br>May 2024</div>
+      <div>
+        <p class="exp-role">Teaching Assistant &middot; Faculty of Economic Sciences, HSE</p>
+        <h3 class="exp-title">Financial Economics &amp; International Finance</h3>
+        <p class="exp-desc">
+          Managed assessments and consultations for 250+ students, led pre-exam consultation
+          sessions across Financial Economics and International Finance, and assisted in
+          preparing course materials.
+        </p>
+        <div class="exp-tags">
+          <span>Teaching</span>
+          <span>Financial Economics</span>
+          <span>International Finance</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- RESEARCH -->
+<div id="research">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Research &amp; Data Science Projects</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card featured">
+      <div>
+        <p class="project-tag">Causal Inference &middot; Instrumental Variables &middot; LMU Munich &middot; Mar 2026</p>
+        <h3 class="project-title">Reassessing the Causal Interpretation of TSLS</h3>
+        <p class="project-desc">
+          Building on Blandhol et al. (2022), this paper examines whether standard Two-Stage
+          Least Squares retains a valid Local Average Treatment Effect interpretation once
+          covariates are added — a question about the functional form used to partial out
+          covariates, not just the choice of instrument. Applying Double/Debiased Machine
+          Learning and IPSW estimators to Project STAR (N=11,599 students), the paper finds that
+          TSLS fails the Ramsey RESET diagnostic in every grade cohort, with specification bias
+          accounting for 32.6% of the TSLS estimate — exceeding the very selection bias the
+          instrumental-variables strategy was designed to eliminate.
+        </p>
+        <div class="project-methods">
+          <span class="method-tag">IV / TSLS</span>
+          <span class="method-tag">DDML</span>
+          <span class="method-tag">IPSW</span>
+          <span class="method-tag">RESET Test</span>
+          <span class="method-tag">Python</span>
+        </div>
+        <a href="https://github.com/ana-rekovets/project-star-causal-inference" class="project-link" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="featured-results">
+        <div class="result-item">
+          <div class="result-num">11,599</div>
+          <div class="result-label">Students, Project STAR</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">32.6%</div>
+          <div class="result-label">Specification bias, Grade 3</div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">4</div>
+          <div class="result-label">Estimators compared: OLS, TSLS, DDML, IPSW</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Causal ML &middot; Health &amp; Longevity &middot; LMU Munich &middot; Jun 2025</p>
+      <h3 class="project-title">Early-Life Cash Transfers: A Causal Forest Approach</h3>
+      <p class="project-desc">
+        Analyzes 16,000 linked Mothers' Pension applications (1911–1935) matched to U.S. Census,
+        WWII, and death records to estimate the long-run effect of early-life cash assistance on
+        longevity. Generalized Random Forests with doubly robust R-learner estimation yield an
+        average treatment effect of ~1.1 life-years, with significant heterogeneity between
+        accepted and rejected applicants.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">GRF</span>
+        <span class="method-tag">R-Learner</span>
+        <span class="method-tag">CATE</span>
+        <span class="method-tag">R</span>
+      </div>
+      <a href="https://github.com/ana-rekovets/causal-forest-cash-transfers" class="project-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Structural Estimation &middot; Industrial Organization &middot; NYU Stern &middot; Jun 2026</p>
+      <h3 class="project-title">Hotel Search Demand Estimation &amp; Algorithmic Pricing Simulation</h3>
+      <p class="project-desc">
+        Estimates the causal effect of hotel prices on demand using a 9.9M-row Expedia search
+        dataset via six specifications (OLS, within-session fixed effects, IV/2SLS, DDML with
+        gradient-boosted regressors) and a sequential search structural model (Ursu et al., 2024)
+        estimated by Simulated Maximum Likelihood, isolating price and display-position confounds
+        using randomized-order search sessions. A companion Q-learning simulation with three
+        sellers replicates algorithmic collusion dynamics (Liu et al., 2026), reaching perfect
+        collusion (Δ=1.00) across 50 seeds, and extends the model to noisy competitor-price
+        signals with implications for EU Digital Markets Act price-transparency rules.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">IV / 2SLS</span>
+        <span class="method-tag">DDML</span>
+        <span class="method-tag">Structural Search Model</span>
+        <span class="method-tag">Q-Learning</span>
+        <span class="method-tag">Python</span>
+      </div>
+      <a href="https://github.com/ana-rekovets/demand-estimation-and-algorithmic-pricing" class="project-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Causal Inference &middot; Labor Economics &middot; NYC Citywide Payroll &middot; Aug 2026</p>
+      <h3 class="project-title">Pay Equity in the New York City Municipal Workforce</h3>
+      <p class="project-desc">
+        Using the full FY2024 NYC citywide payroll — 217,402 full-time, full-year salaried
+        employees, with sex imputed from first names via SSA birth records — this paper measures
+        the gender pay gap and decomposes it into the portion operating within jobs versus the
+        portion operating through job allocation. Women earn 5.9% less in raw terms and 7.5% less
+        after adjusting for tenure and agency; conditional on title, the within-job gap is a
+        precise statistical null (-0.08%), while -7.42 points of the adjusted gap runs through job
+        allocation, with women holding titles paying 9.1% less. Two methodological findings are
+        highlighted alongside the estimates: a routine full-time screen that silently excluded a
+        74.5%-female workforce and doubled the apparent gap, and quantile standard errors that
+        ignored clustering and inflated apparent significance by more than an order of magnitude.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">Blinder-Oaxaca Decomposition</span>
+        <span class="method-tag">Job-Attainment Model</span>
+        <span class="method-tag">Clustered SE</span>
+        <span class="method-tag">Stata / R</span>
+      </div>
+      <a href="https://github.com/ana-rekovets/pay-equity-nyc" class="project-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Causal ML &middot; Firm-Level Panel &middot; LMU Munich &middot; Aug 2025</p>
+      <h3 class="project-title">Strategic Policy Analysis: Innovation Subsidies</h3>
+      <p class="project-desc">
+        Applies Causal Forests, DDML, and DR-TMLE to a 2,381-firm panel to estimate heterogeneous
+        treatment effects of AI-adoption subsidies on productivity, finding CATE ranging from
+        −2.1 to +16.2 points depending on firm size and sector — evidence that the same subsidy
+        can help or hurt depending on who receives it.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">Causal Forests</span>
+        <span class="method-tag">DDML</span>
+        <span class="method-tag">DR-TMLE</span>
+        <span class="method-tag">Python / R</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Machine Learning &middot; USI Lugano &middot; Jan 2026</p>
+      <h3 class="project-title">Neural Network and Reinforcement Learning Implementations</h3>
+      <p class="project-desc">
+        Implements a fully connected neural network in Python/NumPy — forward propagation, ReLU
+        activation, and manually derived backpropagation — alongside SARSA and Q-Learning agents
+        trained with epsilon-greedy exploration in Gymnasium, validating convergence across 200+
+        training episodes.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">Backpropagation</span>
+        <span class="method-tag">SARSA</span>
+        <span class="method-tag">Q-Learning</span>
+        <span class="method-tag">NumPy</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Panel Data &middot; Quasi-Experimental &middot; HSE / LMU Munich &middot; Jun 2024 – Jul 2025</p>
+      <h3 class="project-title">Migration Shocks and Housing/Rent Dynamics</h3>
+      <p class="project-desc">
+        Bachelor's thesis, extended at LMU Munich. Builds a monthly 9-year panel from three
+        administrative sources, finding a 1% demand increase raises prices 1.4%, amplified 3×
+        during a structural shock. An extension applies Interrupted Time Series to an expanded
+        panel, identifying a structural break in rents following the September 2022 migration
+        wave.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">Interrupted Time Series</span>
+        <span class="method-tag">Panel Data</span>
+        <span class="method-tag">Stata</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Variance Decomposition &middot; Macro Panel &middot; University of Leipzig &middot; Sep 2023</p>
+      <h3 class="project-title">Drivers of Global Income Inequality: A Shapley-Owen Decomposition</h3>
+      <p class="project-desc">
+        Analyzes a macroeconomic panel of 108 countries over 40 years in Stata, applying Shapley
+        and Owen R² decomposition to quantify each factor's contribution to income redistribution.
+        Finds the interaction between economic freedom and genetic diversity accounts for ~50% of
+        explained variance in baseline redistribution models.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">Shapley Decomposition</span>
+        <span class="method-tag">Owen R²</span>
+        <span class="method-tag">Stata</span>
+      </div>
+      <a href="https://github.com/ana-rekovets/income-inequality-decomposition" class="project-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <div class="project-card">
+      <p class="project-tag">Mixed-Methods Research &middot; USI Lugano &middot; Dec 2025</p>
+      <h3 class="project-title">Consumer Behavior Research: Digital Collaboration Tools</h3>
+      <p class="project-desc">
+        Conducted 12 semi-structured interviews and synthesized findings using Work Activity
+        Affinity Diagrams (WAAD) to identify consumer pain points, tool-usage patterns, and
+        collaboration barriers, developing three empirically grounded personas validated against
+        interview data.
+      </p>
+      <div class="project-methods">
+        <span class="method-tag">WAAD</span>
+        <span class="method-tag">Qualitative Research</span>
+        <span class="method-tag">Personas</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div id="certifications">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Certifications &amp; Professional Development</h2>
+  </div>
+  <div class="info-list">
+    <div class="info-item">
+      <div>
+        <div class="info-title">Digital and Informational Skills — ICDL Certificate</div>
+        <div class="info-detail">EUGLOH Living Lab, University of Porto, Portugal · Blended certificate program covering Data Analytics and Power BI, Cybersecurity, AI, and Data Protection.</div>
+      </div>
+      <div class="info-date">Jul 2026</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CONFERENCES -->
+<div id="conferences">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Conferences &amp; Presentations</h2>
+  </div>
+  <div class="info-list">
+    <div class="info-item">
+      <div>
+        <div class="info-title">Poster Presentation — EUGLOH Conference</div>
+        <div class="info-detail">University of Alcalá</div>
+      </div>
+      <div class="info-date">Jun 2026</div>
+    </div>
+    <div class="info-item">
+      <div>
+        <div class="info-title">Poster Presentation — 6th Annual SYMGLOH Symposium</div>
+        <div class="info-detail">Université Paris-Saclay</div>
+      </div>
+      <div class="info-date">Jul 2026</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- AWARDS -->
+<div id="awards">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Awards &amp; Honors</h2>
+  </div>
+  <div class="info-list">
+    <div class="info-item">
+      <div>
+        <div class="info-title">Santander Scholarship for Academic Mobility</div>
+      </div>
+      <div class="info-date">2026</div>
+    </div>
+    <div class="info-item">
+      <div>
+        <div class="info-title">SEMP Merit Scholarship ($10,000)</div>
+        <div class="info-detail">Università della Svizzera italiana</div>
+      </div>
+      <div class="info-date">2025 – 2026</div>
+    </div>
+    <div class="info-item">
+      <div>
+        <div class="info-title">Free Mover Academic Program (10% acceptance rate)</div>
+        <div class="info-detail">University of Leipzig</div>
+      </div>
+      <div class="info-date">2023</div>
+    </div>
+    <div class="info-item">
+      <div>
+        <div class="info-title">Full Merit Scholarship &amp; Academic Stipend</div>
+        <div class="info-detail">Higher School of Economics · Top 5% of program</div>
+      </div>
+      <div class="info-date">2020 – 2024</div>
+    </div>
+    <div class="info-item">
+      <div>
+        <div class="info-title">U.S. Government Merit Scholarship ($30,000; 4.7% acceptance rate)</div>
+      </div>
+      <div class="info-date">2021 – 2022</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <p class="skill-category">Statistical Methods</p>
+      <ul class="skill-list">
+        <li>Causal inference</li>
+        <li>Field &amp; survey experiments</li>
+        <li>Heterogeneous treatment effects</li>
+        <li>IV / TSLS</li>
+        <li>Interrupted Time Series</li>
+        <li>Difference-in-Differences</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <p class="skill-category">ML &amp; AI</p>
+      <ul class="skill-list">
+        <li>Causal Forests (GRF)</li>
+        <li>Double/Debiased ML (DDML)</li>
+        <li>Neural networks</li>
+        <li>Reinforcement learning</li>
+        <li>Supervised learning</li>
+        <li>NLP fundamentals</li>
+        <li>Clustering</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <p class="skill-category">Software</p>
+      <ul class="skill-list">
+        <li>Python (pandas, NumPy, scikit-learn, statsmodels, PyTorch)</li>
+        <li>R (tidyverse, grf, DoubleML, ggplot2)</li>
+        <li>Stata · SQL/MySQL</li>
+        <li>Power BI · GitHub · LaTeX</li>
+      </ul>
+    </div>
+    <div class="skill-block">
+      <p class="skill-category">Data Skills</p>
+      <ul class="skill-list">
+        <li>Large &amp; complex datasets</li>
+        <li>U.S. Census &amp; linked administrative records</li>
+        <li>High-dimensional transaction &amp; firm-level panel data</li>
+        <li>Web scraping &amp; API data collection</li>
+        <li>Unstructured &amp; behavioral data</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<div id="about">
+<div class="section">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">About</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      I'm an M.Sc. Economics candidate at LMU Munich with research interests in applied
+      econometrics, causal inference, and machine learning methods, and I'm committed to
+      pursuing a PhD. My work applies Double/Debiased ML, Causal Forests, and quasi-experimental
+      designs (IV/TSLS, Difference-in-Differences, Interrupted Time Series) to large
+      administrative and survey datasets — from U.S. Census-linked historical records to
+      firm-level panels and randomized experiments. I've also taught as a Teaching Assistant to
+      250+ students at HSE. U.S. Permanent Resident, based in New York, NY.
+    </div>
+    <div class="contact-block">
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <a href="mailto:ana.rekovets@gmail.com" class="contact-value">ana.rekovets@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Phone</span>
+        <span class="contact-value">+1 (201) 758-6034</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">GitHub</span>
+        <a href="https://github.com/ana-rekovets" class="contact-value" target="_blank">github.com/ana-rekovets</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Languages</span>
+        <span class="contact-value">EN, RU, DE (fluent) · ES, FR (intermediate) · ZH (beginner)</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">New York, NY</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Status</span>
+        <span class="contact-value">U.S. Permanent Resident</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <span>Anastasiia Rekovets</span>
+  <span>PreDoc &amp; PhD Applicant · Applied Econometrics · 2026</span>
+</footer>
